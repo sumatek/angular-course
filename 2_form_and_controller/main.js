@@ -1,6 +1,7 @@
-var myApp = angular.module('myApp', []);
+// var myApp = angular.module('myApp', []);
+angular.module('myApp', []);
 
-myApp.controller('FormController', function($scope){
+angular.module('myApp').controller('FormController', function($scope){
 	$scope.formData = {
 		name: "iPalm",
 		email: "kit.sumate@gmail.com"
