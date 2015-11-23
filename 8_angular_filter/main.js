@@ -38,6 +38,12 @@ app.controller('ProfileController', function ($scope) {
       income: 342342432234,
       imageURL: "https://upload.wikimedia.org/wikipedia/commons/d/d8/U09_Luis_Su%C3%A1rez_7540.jpg",
     },
-  ]
+  ];
 
 });
+
+  app.filter('convertName', function() {
+     return function(input) {
+        return input;
+     }
+  });
