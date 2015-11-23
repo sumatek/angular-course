@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<title>Controllers</title>
+	<link href="../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand"
+			   href="/">Controllers
+			</a>
+		</div>
+		,
+	</div>
+</nav>
+
+<div class="container main-content" ng-controller="FormController">
+	<form>
+		<div class="panel panel-default">
+		  <div class="panel-heading">Blog</div>
+		  <table class="table">
+		    <tr>
+				<th>Title</th>
+				<th>Content</th>
+				<th>Author</th>
+				<th>Post date</th>
+			</tr>
+			<tr ng-repeat="posted in postList | orderBy:'-postDate' | limitTo: 2">
+				<td>{{posted.title}}</td>
+				<td>{{posted.content | convertContent}}</td>
+				<td>{{posted.author}}</td>
+				<td>{{posted.postDate | date:'medium'}}</td>
+			</tr>
+		  </table>
+		   <div class="panel-heading">total {{postList.length}}</div>
+		</div>
+
+		<div class="form-group">
+			<label for="name">Title</label>
+			<input type="text" class="form-control" ng-model="formData.title">
+		</div>
+		<div class="form-group">
+	  		<label for="comment">Comment:</label>
+	  		<textarea class="form-control" rows="5"  ng-model="formData.content"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="name">Author</label>
+			<input type="text" class="form-control" ng-model="formData.author">
+		</div>
+
+		<div class="form-group">
+			<button class="btn btn-primary" ng-click="postMessage()">Post</button>
+		</div>
+	</form>
+</div>
+
+<script src="../libs/angular/angular.min.js"></script>
+<script src="main.js"></script>
+
+
+</body>
+</html>
