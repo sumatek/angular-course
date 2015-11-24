@@ -5,22 +5,14 @@ app.controller('FormController', function ($scope) {
 	$scope.postList = [];
 
 	$scope.postMessage = function() {
-		var message = $scope.populateMessage();
-		$scope.addMessage(message)
+		$scope.addMessage()
 		$scope.clearMesage();
 	};
 
-	$scope.populateMessage = function() {
-		return message = {
-			title : $scope.formData.title,
-			content : $scope.formData.content,
-			author : $scope.formData.author,
-			postDate : new Date()
-		};
-	};
-
-	$scope.addMessage = function(message) {
-		$scope.postList.push(message)
+	$scope.addMessage = function() {
+		$scope.formData.postDate = new Date();
+		$scope.keepMessage = angular.copy($scope.formData);
+		$scope.postList.push($scope.keepMessage)
 	};
 
 	$scope.clearMesage = function() {
